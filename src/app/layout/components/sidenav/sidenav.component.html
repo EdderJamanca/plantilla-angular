@@ -1,0 +1,60 @@
+<div class="sidebar"
+(mouseenter)="collapseOpenSidenav()"
+(mouseleave)="collapseCloseSidenav()"
+[class.open]="collapsed && (collapsedOpen$ | async)"
+[class.collapsed]="collapsed"
+ >
+  <!-- logo - nombre - buttom -->
+  <div class="sidebar-toolbar__content">
+
+    <app-sidenav-heading
+    (toogleCollapse)="toogleSidenav($event)"
+    >
+    </app-sidenav-heading>
+     <!-- end logo - nombre - buttom -->
+     <!-- SECTION BUSCADOR  -->
+    <app-sidenav-search></app-sidenav-search>
+     <!-- END SECTION BUSCADOR  -->
+  </div>
+  <div class="sidebar-separador"></div>
+
+  <!-- item page -->
+  <app-scrollbar class="flex-1 flex flex-col">
+    <div class="sidebar-content ">
+      <!-- items$ -->
+        <app-sidenav-item
+        *ngFor="let item of items$ | async"
+        [item]="item"
+        [level]="0"
+        ></app-sidenav-item>
+    </div>
+  </app-scrollbar>
+  <!-- end item -->
+  <!-- use -->
+  <div
+     class="sidenav-user__container flex-none"
+    >
+
+     <div
+        #userProfileMenuOriginRef
+        (click)="openProfileMenu(userProfileMenuOriginRef)"
+        [class.sidenav-user--open]="userMenuOpen$ | async"
+        class="sidenav-user flex items-center"
+     >
+        <img
+          alt="User Avatar"
+          class="vex-sidenav-user__image flex-none"
+          src="../../../../assets/img/avatars/1.jpg" alt="">
+        <div
+          class="sidenav-user__content flex-auto"
+        >
+            <div class="sidenav-user__title">Edder Ivan </div>
+            <div class="sidenav-user__subtitle">Administrador</div>
+        </div>
+        <span class="sidenav-user__dropdown-icon">
+            <i class="fa-solid fa-caret-down"></i>
+        </span>
+     </div>
+  </div>
+  <!-- end user -->
+</div>

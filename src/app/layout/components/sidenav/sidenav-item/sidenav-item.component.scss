@@ -1,0 +1,125 @@
+
+$background: #111827;
+$sidenav-width-collapsed:72px;
+$sidenav-width-open:280px;
+$sidenav-title-color:#7682b8;
+
+.sidebar-item-title{
+  font-size: 0.8rem;
+  width: 100%;
+  color: $sidenav-title-color;
+  font-weight: 700;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-top: 1.5rem;
+  // &.show{
+  //   opacity: 0;
+  // }
+}
+
+
+.sidebar-item{
+  display: flex;
+  box-sizing: border-box;
+  margin:0 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  min-height: 40px;
+  flex-direction: row;
+  color: white;
+  text-decoration: none;
+  // transition: background-color 3s ease;
+  margin-bottom: 0.25rem;
+  transition: all 400ms cubic-bezier(0.25,0.8,0.25,1);
+  // #545ea5
+  & .sidebar-item__icon{
+    color: rgb(129 140 248 / 60%);
+  }
+  & .sidebar-item__label{
+    color:#d1d5db;
+  }
+  & .sidebar-item__badge{
+    color: rgb(129 140 248 / 60%);
+  }
+
+  &:hover{
+      background-color: rgb(99 102 241 / 15%);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      & .sidebar-item__icon {
+        color: rgb(79 70 229 / 1); /* Cambiar el color del icono */
+      }
+      & .sidebar-item__label {
+        color: white; /* Cambiar el color de la etiqueta */
+      }
+
+      & .sidebar-item__badge{
+        color: white;
+      }
+
+    }
+
+  &.sidebar-item--open{
+      .sidebar-item__dropdown-icon{
+      transform: rotate(90deg) !important;
+      }
+  }
+
+}
+.sidebar-item-active{
+  background-color: rgb(99 102 241 / 20%);
+  & .sidebar-item__icon{
+    color: rgb(79 70 229 / 1);
+  }
+  & .sidebar-item__label{
+    color:rgb(255 255 255 / 1);
+  }
+  & .sidebar-item__badge{
+    color: rgb(79 70 229 / 1);
+  }
+}
+.sidebar-item__icon{
+  flex: none;
+ width: 1.5rem;
+ height: 1.5rem;
+ color: rgb(79 70 229 / 1);
+}
+// .sidebar-item__icon-color{
+// }
+
+.sidebar-item__label{
+   flex: auto;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+.sidebar-item__badge{
+ width: 18px;
+}
+.item-level-1{
+  display: flex;
+  flex-direction: column;
+  // gap: 0.15rem;
+}
+
+.item-level-1 .sidebar-item{
+  padding-inline-start: calc(1.5rem + 00.75rem);
+}
+
+// dropdown
+
+.sidenav-item__dropdown{
+  overflow: hidden;
+}
+
+.sidebar-item.show > *{
+ opacity: 0;
+}
+.sidebar-item.show > :first-child{
+  opacity: 1;
+}

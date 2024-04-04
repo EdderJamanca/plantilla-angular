@@ -1,0 +1,14 @@
+<div
+class="sidebar-toobar">
+<img [src]="logo" class="w-6 select-none flex-none" alt="Logo">
+<!-- [class.show]="!!(sidenavCollapsed$ | async)" -->
+<h2 class="sidebar-toolbar__title">
+    EDDER
+  </h2>
+  <button
+    (click)="toogleSidenav()"
+    [class.hidden]="!(isDesktop$ | async)"
+    class="sidebar-toolbar__button cursor-pointer">
+    <i class="fa-regular fa-circle text-white text-sm"></i>
+  </button>
+</div>

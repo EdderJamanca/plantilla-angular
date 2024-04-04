@@ -1,0 +1,31 @@
+
+<div
+class="edd-base-layout-container"
+>
+<!-- side nav -->
+<div
+  (click)="onSidenavClosed()"
+   [class.backdrop]="!!(sidenavOpen$ | async)"></div>
+  <div
+    [class.drawer]="!!(sidenavOpen$ | async)"
+    class="edd-layout-sidenav-container">
+
+    <!-- start side nav -->
+    <app-sidenav
+    (click)="onSidenavClosed()"
+    [collapsed]="!!(sidenavCollapsed$ | async)"></app-sidenav>
+    <!-- end side nav -->
+    <!-- start panel -->
+    <!-- end panel -->
+  </div>
+
+  <div
+    class="edd-layout-body-container bg-gray-50"
+    [class.collapsed]="!!(sidenavCollapsed$ | async)"
+    >
+    <!--  -->
+    <app-heading></app-heading>
+      <router-outlet></router-outlet>
+  </div>
+
+</div>

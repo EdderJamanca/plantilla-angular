@@ -1,0 +1,65 @@
+<a
+  *ngIf="isLink(item) && !isFunction(item.route)"
+  [routerLinkActiveOptions]="item.routerLinkActiveOptions || {exact:false}"
+  [routerLink]="item.route"
+   routerLinkActive="sidebar-item-active"
+   class="sidebar-item">
+   <span
+   *ngIf="level==0 && item.icon"
+   class="sidebar-item__icon">
+   <i [class]="item.icon"></i>
+  </span>
+  <!-- [class.show]="!!(sidenavCollapsed$ | async)" -->
+  <span class=" sidebar-item__label">{{item.label}}</span>
+  <span
+    *ngIf="item.badge"
+    class="sidebar-item__badge">
+    <i class="fa-solid fa-chevron-right"></i>
+  </span>
+  <!-- <i class="fa-solid fa-chevron-up"></i> -->
+</a>
+<!--  si dopdow -->
+<ng-container *ngIf="isDropdow(item)">
+
+  <!-- [class.show]="!!(sidenavCollapsed$ | async)" -->
+  <div
+      (click)="toggleOpen()"
+      [class.sidebar-item-active]="isOpen || isActive"
+      [class.sidebar-item--open]="isOpen"
+      class="sidebar-item">
+      <span
+        *ngIf="level==0 && item.icon"
+        class="sidebar-item__icon">
+        <i [class]="item.icon"></i>
+      </span>
+      <span class="sidebar-item__label">{{item.label}}</span>
+      <span
+        class="sidebar-item__dropdown-icon">
+        <i class="fa-solid fa-chevron-right"></i>
+      </span>
+  </div>
+
+  <div
+      [@dropdown]="isOpen"
+      class="sidenav-item__dropdown">
+      <app-sidenav-item
+        *ngFor="let subItem of item.children"
+        [item]="subItem"
+        [level]="level + 1"
+      ></app-sidenav-item>
+  </div>
+
+</ng-container>
+<!-- [class.show]="!!(sidenavCollapsed$ | async)" -->
+<!-- si sub heading -->
+<ng-container *ngIf="isSubheading(item)">
+   <div
+   class="sidebar-item-title">{{item.label}}</div>
+   <app-sidenav-item
+     *ngFor="let subItem of item.children"
+     [item]="subItem"
+     [level]="0"
+   ></app-sidenav-item>
+
+</ng-container>
+

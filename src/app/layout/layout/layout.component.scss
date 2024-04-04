@@ -1,0 +1,102 @@
+.edd-base-layout-container{
+ bottom:0;
+ display: flex;
+ flex-direction: column;
+ left: 0;
+ position: absolute;
+ right: 0;
+ top: 0;
+}
+@media (max-width:1280px){
+  .backdrop{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+}
+
+.edd-layout-sidenav-container{
+  top:0;
+  left: 0;
+  visibility: visible;
+ flex: 1;
+ background-color: red($color: #000000);
+}
+@media (max-width:1280px){
+  .edd-layout-sidenav-container{
+    visibility: hidden;
+    transform: translate3d(-100%,0,0);
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-delay: 0s;
+    transition-property: transform;
+    // transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &.drawer{
+      top:0;
+      left: 0;
+      visibility: visible;
+      transform: none;
+      transition-duration: 0.5s;
+      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+      transition-delay: 0s;
+      transition-property: transform;
+    }
+  }
+}
+// ===================+
+$background: #111827;
+$sidenav-width-collapsed:72px;
+$sidenav-width-open:280px;
+$sidenav-title-color:#7682b8;
+
+div{
+  box-sizing: border-box;
+}
+
+.edd-layout-body-container{
+  width: 100%;
+  height: 100vh;
+  transition-property:all;
+  transition-duration: 400ms;
+  transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: calc(100% - $sidenav-width-open);
+  margin-left: $sidenav-width-open;
+
+  &.collapsed{
+    width: calc(100% - $sidenav-width-collapsed);
+    margin-left: $sidenav-width-collapsed;
+   }
+
+}
+
+
+@media (max-width:1280px){
+  .edd-layout-body-container.open{
+    width: 100%;
+    margin-left: 0;
+  }
+  .edd-layout-body-container.collapsed{
+    width: 100%;
+    margin-left: 0;
+  }
+  // .edd-layout-sidenav-container{
+  //   opacity: 0;
+  // }
+
+  .edd-layout-body-container{
+    width: 100%;
+   margin-left: 0%;
+    &.collapsed{
+      width: 100%;
+    }
+  }
+  //
+
+}
+
+
+//
+
+

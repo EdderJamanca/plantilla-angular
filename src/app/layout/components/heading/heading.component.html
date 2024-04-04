@@ -1,0 +1,22 @@
+<div
+class="body-header"
+>
+   <div
+      (click)="toogleSidenav()"
+      [class.hidden]="isDesktop$ | async"
+    >
+    <button class="btn-header btn-griss">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+   </div>
+   <div class="botones-grup">
+      <button class="btn-header btn-purpura">
+        <i class="fa-solid fa-bell"></i>
+      </button>
+      <button class="btn-header btn-purpura">
+        <i class="fa-regular fa-calendar"></i>
+      </button>
+   </div>
+
+</div>

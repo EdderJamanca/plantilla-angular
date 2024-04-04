@@ -22,7 +22,13 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@navigation/*":["./src/app/core/navegation/*"],
+      "@animation/*":["./src/app/core/animacion/*"],
+      "@components/*":["./src/app/core/components/*"],
+      "@sidenav/*":["./src/app/layout/components/sidenav/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

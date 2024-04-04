@@ -1,0 +1,32 @@
+<div class="user-menu">
+  <a
+    (click)="close()"
+    [routerLink]="['/login']"
+    class="user-menu-item"
+   >
+    <span class="user-menu-item__icon">
+      <i class="fa-solid fa-user"></i>
+    </span>
+    <div class="user-menu-item__label">Perfil</div>
+  </a>
+  <a
+    (click)="close()"
+    [routerLink]="['/login']"
+    class="user-menu-item"
+   >
+    <span class="user-menu-item__icon">
+      <i class="fa-solid fa-gear"></i>
+    </span>
+    <div class="user-menu-item__label">Configuración</div>
+  </a>
+  <a
+    (click)="close()"
+    [routerLink]="['/login']"
+    class="user-menu-item"
+   >
+    <span class="user-menu-item__icon">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </span>
+    <div class="user-menu-item__label">Sign Out</div>
+  </a>
+</div>

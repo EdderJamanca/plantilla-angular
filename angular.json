@@ -30,9 +30,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "simplebar/dist/simplebar.css",
+              "@angular/cdk/overlay-prebuilt.css"
             ],
             "scripts": [],
+            "allowedCommonJsDependencies": [
+              "simplebar"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -73,7 +78,10 @@
               "buildTarget": "plantillaV0:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4500
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -102,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "6750c601-8544-48cc-997b-c534f57a9a01"
   }
 }
