@@ -17,12 +17,6 @@ export const routes: Routes = [
       //   pathMatch:'full'
       // },
       {
-        path:'dashboards/analyts',
-        pathMatch:'full',
-        loadComponent:()=>
-          import('./pages/analytics/analytics.component').then(m=>m.AnalyticsComponent)
-      },
-      {
         path:'apps',
         children:[
           {
@@ -32,6 +26,10 @@ export const routes: Routes = [
           {
             path:'chat',
             loadComponent:()=>import('./pages/analytics02/analytics02.component')
+          },
+          {
+            path:'flujograma',
+            loadComponent:()=>import('./pages/analytics02/analytics02.component')
           }
           // {
           //   path:'help-center',
@@ -39,6 +37,12 @@ export const routes: Routes = [
           //    import('./pages/analytics02/analytics02.component')
           // }
         ]
+      },
+      {
+        path:'dashboards/analyts',
+        pathMatch:'full',
+        loadComponent:()=>
+          import('./pages/analytics/analytics.component').then(m=>m.AnalyticsComponent)
       }
     ]
   },

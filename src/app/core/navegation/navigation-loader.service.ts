@@ -33,7 +33,23 @@ export class NavigationLoaderService {
           }
         ]
       },
-      {
+       {
+         type:'subheading',
+         label:'Documentación',
+         children:[
+           {
+             type: 'link',
+             label:'Flujo Grama',
+             route: '/apps/flujograma',
+             icon:'fa-solid fa-chart-simple'
+           }
+         ]
+       }
+    ])
+   }
+}
+
+/*{
         type: 'subheading',
         label: 'Apps',
         children: [
@@ -202,14 +218,11 @@ export class NavigationLoaderService {
             route: '/apps/chat',
             icon: 'fa-solid fa-chart-simple'
           },
-          {
+         {
             type: 'link',
             label: 'Chat',
             route: '/apps/chat',
             icon: 'fa-solid fa-chart-simple'
           },
-        ]
-        }
-     ])
-   }
-}
+        ]}
+        */
