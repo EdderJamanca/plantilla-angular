@@ -1,13 +1,67 @@
 
-<div class="container">
-  <form class="w-2/12">
-     <div class="mb-3">
-          <label for="usuario" class="block mb-2 text-sm font-medium text-gray-900">Usuario</label>
-         <input id="usuario" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5"/>
-     </div>
-     <div class="mb-3">
-          <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-          <input id="password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5"/>
-     </div>
-  </form>
-</div>
+<section class="bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div class="w-2/6 bg-gray-700 rounded-lg px-5 py-6">
+        <h1 class="text-center font-bold text-4xl text-white">DocTask</h1>
+        <br/>
+
+        <form>
+           <div class="mb-3 flex justify-between gap-1">
+              <button class="border-2 border-gray-100 rounded-lg block w-full py-3 text-white">
+                  <i class="fa-brands fa-google text-white"></i> Iniciar Seción con Google
+              </button>
+              <button class="border-2 border-gray-100  rounded-lg block w-full py-3 text-white">
+                  <i class="fa-brands fa-github"></i> Iniciar Seción con Git
+              </button>
+           </div>
+           <hr class="mb-3">
+           <div class="mb-3">
+                <label for="usuario" class="block mb-2 font-medium  text-white text-lg">Usuario</label>
+                <div class="relative">
+                    <input id="usuario" type="text"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                           focus:border-blue-500 block w-full py-3 ps-4 pe-10"/>
+                    <button type="button"
+                            class="absolute inset-y-0 end-0 flex items-center z-20 px-3">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                </div>
+           </div>
+           <div class="mb-3">
+                <label for="password" class="block mb-2 font-medium text-white text-lg">Password</label>
+               <div class="relative">
+                    <input id="password"
+                           [type]="showPassword() ? 'text':'password'"
+                           class="bg-gray-50 border border-gray-300
+                                 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full py-3 ps-4 pe-10"/>
+                    <button  type="button"
+                             (click)="toogleShowPassword()"
+                             class="absolute inset-y-0 end-0 flex items-center z-20 px-3">
+                        <i [hidden]="!showPassword()" class="fa-solid fa-eye"></i>
+                        <i [hidden]="showPassword()" class="fa-solid fa-eye-slash"></i>
+                    </button>
+               </div>
+           </div>
+           <button class=" mb-3 text-white bg-blue-600 hover:bg-blue-800 rounded-2xl px-5 py-3 block w-full text-lg">
+             Iniciar Sesión
+           </button>
+            <div class="my-5 flex justify-center">
+               <a routerLink="/auth/forgout-password"
+                  class="text-blue-700 inline-block mb-1 font-bold">
+                   ¿Has olvidado tu contraseña?
+               </a>
+
+                <p class="text-white text-md text-end">
+                    ¿Aún no tienes una cuenta?
+                    <a routerLink="/auth/register"
+                       class="text-blue-700 font-bold">
+                        Registrate aquí
+                    </a>
+                </p>
+            </div>
+
+
+        </form>
+    </div>
+  </div>
+</section>

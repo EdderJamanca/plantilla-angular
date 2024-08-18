@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 
 @Component({
   selector: 'app-recovery',
@@ -8,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './recovery.component.scss'
 })
 export class RecoveryComponent {
+  showPassword = signal(false);
+
+  toogleShowPassword(){
+    this.showPassword.update(preState=>!preState);
+  }
+
+  showPasswordConfirmar = signal(false);
+  toggleShowPasswordConfirmar(){
+    this.showPasswordConfirmar.update(preState=>!preState);
+  }
 
 }

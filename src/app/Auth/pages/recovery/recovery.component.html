@@ -1,1 +1,52 @@
-<p>recovery works!</p>
+
+<section class="bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="w-2/6 bg-gray-700 rounded-lg px-5 py-6">
+            <h2 class="text-center font-bold text-2xl text-white">Cambiar Contraseña</h2>
+
+            <form>
+                <div class="mb-3">
+                    <label for="password" class="block mb-2 font-medium text-white text-lg">Password</label>
+                    <div class="relative">
+                        <input id="password"
+                               [type]="showPassword() ? 'text':'password'"
+                               placeholder="*************"
+                               class="bg-gray-50 border border-gray-300
+                                 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full py-3 ps-4 pe-10"/>
+                        <button  type="button"
+                                 (click)="toogleShowPassword()"
+                                 class="absolute inset-y-0 end-0 flex items-center z-20 px-3">
+                            <i [hidden]="!showPassword()" class="fa-solid fa-eye"></i>
+                            <i [hidden]="showPassword()" class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <label for="passwordConfirmar" class="block mb-2 font-medium text-white text-lg">Confirmar
+                        Password</label>
+                    <div class="relative">
+                        <input id="passwordConfirmar"
+                               [type]="showPasswordConfirmar() ? 'text':'password'"
+                               placeholder="*************"
+                               class="bg-gray-50 border border-gray-300
+                                 text-gray-900 text-sm rounded-lg focus:border-blue-500
+                                 block w-full py-3 ps-4 pe-10"/>
+                        <button  type="button"
+                                 (click)="toggleShowPasswordConfirmar()"
+                                 class="absolute inset-y-0 end-0 flex items-center z-20 px-3">
+                            <i [hidden]="!showPasswordConfirmar()" class="fa-solid fa-eye"></i>
+                            <i [hidden]="showPasswordConfirmar()" class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button
+                        class=" mb-3 text-white bg-blue-600 hover:bg-blue-800
+                        rounded-2xl px-5 py-3 block w-full text-lg">
+                    Registrar
+                </button>
+
+            </form>
+        </div>
+    </div>
+</section>
